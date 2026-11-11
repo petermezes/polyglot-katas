@@ -1,0 +1,14 @@
+[project]
+name = "exercises-tests"
+version = "1.0.0"
+requires-python = ">=3.12"
+
+[dependency-groups]
+dev = ["pytest>=8"]
+
+# conftest.py puts exercises/python (or solutions/python with --solutions) on sys.path,
+# so the tests write `from ex01_collections.word_stats import ...`.
+
+[tool.pyright]
+# For the editor (Pylance / Pyright): resolve the test imports from exercises/python.
+extraPaths = ["../../exercises/python"]

@@ -1,0 +1,13 @@
+bin/
+obj/
+.vs/
+.idea/
+.zed/
+*.user
+__pycache__/
+.pytest_cache/
+.venv/
+uv.lock
+.DS_Store
+target/
+Cargo.lock

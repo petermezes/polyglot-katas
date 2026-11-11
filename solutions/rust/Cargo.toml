@@ -1,0 +1,8 @@
+[package]
+name = "solutions"
+version = "1.0.0"
+edition = "2024"
+rust-version = "1.85"
+publish = false
+
+# No dependencies: the exercises use only the standard library.

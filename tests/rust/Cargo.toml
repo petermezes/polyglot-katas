@@ -1,0 +1,19 @@
+[package]
+name = "exercises-tests"
+version = "1.0.0"
+edition = "2024"
+rust-version = "1.85"
+publish = false
+
+[lib]
+# The tests write `use under_test::ex01_collections::*;`, see src/lib.rs.
+name = "under_test"
+
+[features]
+# cargo test                       -> the tests run against exercises/rust
+# cargo test --features solutions  -> the same tests against solutions/rust
+solutions = []
+
+[dependencies]
+exercises = { path = "../../exercises/rust" }
+solutions = { path = "../../solutions/rust" }
