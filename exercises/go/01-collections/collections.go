@@ -1,15 +1,6 @@
 // Exercise 01: collections — slices, maps, sorting.
 package collections
 
-import (
-	"cmp"
-	"fmt" // DEBUG: remove when done (Go does not allow unused imports)
-	"slices"
-	"strings"
-	"unicode"
-	"unicode/utf8"
-)
-
 // WordCount is a word and the number of its occurrences.
 type WordCount struct {
 	Word  string
@@ -20,21 +11,14 @@ type WordCount struct {
 //
 // Tip: strings.ToLower, strings.FieldsFunc, unicode.IsLetter.
 func Words(text string) []string {
-	f := func(c rune) bool {
-		return !unicode.IsLetter(c)
-	}
-	return strings.FieldsFunc(strings.ToLower(text), f)
+	panic("TODO")
 }
 
 // CountWords counts the occurrences of each word.
 //
 // Tip: the zero value of int in a map is 0, so counts[w]++ works for a new key too.
 func CountWords(words []string) map[string]int {
-	wordsMap := make(map[string]int)
-	for _, word := range words {
-		wordsMap[word]++
-	}
-	return wordsMap
+	panic("TODO")
 }
 
 // TopN returns at most n most frequent words: by count descending, ties by word ascending.
@@ -42,24 +26,7 @@ func CountWords(words []string) map[string]int {
 // Tip: map iteration order is random. Copy it into a slice and sort with slices.SortFunc
 // and cmp.Compare. Watch out for n larger than the number of words.
 func TopN(counts map[string]int, n int) []WordCount {
-	var list []WordCount
-	for k, v := range counts {
-		list = append(list, WordCount{Word: k, Count: v})
-	}
-
-	slices.SortFunc(list, func(a, b WordCount) int {
-		return cmp.Or(
-			cmp.Compare(b.Count, a.Count),
-			cmp.Compare(a.Word, b.Word))
-	})
-
-	if n < len(list) {
-		list = list[:n]
-	}
-
-	fmt.Println(list)
-
-	return list
+	panic("TODO")
 }
 
 // GroupByLength groups unique words by number of characters (not bytes!). Words in a group are sorted.
@@ -67,17 +34,5 @@ func TopN(counts map[string]int, n int) []WordCount {
 // Tip: len("kôň") is 5 (bytes in UTF-8). utf8.RuneCountInString counts characters.
 // To remove duplicates from a sorted slice, use slices.Compact.
 func GroupByLength(words []string) map[int][]string {
-	groups := make(map[int][]string)
-
-	for _, w := range words {
-		l := utf8.RuneCountInString(w)
-		groups[l] = append(groups[l], w)
-	}
-
-	for l, g := range groups {
-		slices.Sort(g)
-		groups[l] = slices.Compact(g)
-	}
-
-	return groups
+	panic("TODO")
 }
